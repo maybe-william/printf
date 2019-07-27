@@ -13,7 +13,7 @@ int o_format(char *, unsigned int);
 
 int u_format(char *, unsigned int);
 
-int x_format(char *, unsigned int);
+int x_format(char *, unsigned long int);
 
 int X_format(char *, unsigned int);
 

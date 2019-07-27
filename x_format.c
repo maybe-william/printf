@@ -5,7 +5,7 @@
   *
   *
   */
-void get_hexx(int unsigned n)
+void get_hexx(long int unsigned n)
 {
 	int temp = 0;
 
@@ -27,7 +27,7 @@ void get_hexx(int unsigned n)
 }
 
 
-int x_format(char *format, int unsigned n)
+int x_format(char *format, long int unsigned n)
 {
 	get_hexx(n);
 
