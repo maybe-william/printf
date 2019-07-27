@@ -4,7 +4,7 @@
 This is the first large project
 for Holberton School on the low
 level programming track. The idea
-behind it is to reimplement the 
+behind it is to reimplement the
 printf function in C in our own
 way.
 ~~~
