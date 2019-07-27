@@ -1,51 +1,63 @@
 #include "holberton.h"
 #include <stdarg.h>
 
-int funcswitch(char* y, char specifier, va_list al)
+/**
+ * funcswitch - dispatch the appropriate data to the appropriate formatter
+ * @y: The pointer to % in the spec string
+ * @specifier: the spec character
+ * @al: the va_list to pull args from
+ * Return: The amount to shift the pointer forward in the calling function
+ */
+int funcswitch(char *y, char specifier, va_list al)
 {
-	switch(specifier)
+	switch (specifier)
 	{
 	case 'd':
 	case 'i':
-		return di_format(y, va_arg(al, int));
+		return (di_format(y, va_arg(al, int)));
 	case 'o':
-		return o_format(y, va_arg(al, int));
+		return (o_format(y, va_arg(al, int)));
 	case 'u':
-		return u_format(y, va_arg(al, unsigned int));
+		return (u_format(y, va_arg(al, unsigned int)));
 	case 'x':
-		return x_format(y, va_arg(al, unsigned int));
+		return (x_format(y, va_arg(al, unsigned int)));
 	case 'X':
-		return X_format(y, va_arg(al, unsigned int));
+		return (X_format(y, va_arg(al, unsigned int)));
 	case 'c':
-		return c_format(y, va_arg(al, int));
+		return (c_format(y, va_arg(al, int)));
 	case 's':
-		return s_format(y, va_arg(al, char *));
+		return (s_format(y, va_arg(al, char *)));
 	case 'p':
-		return p_format(y, va_arg(al, void *));
+		return (p_format(y, va_arg(al, void *)));
 	case 'S':
-		return S_format(y, va_arg(al, char *));
+		return (S_format(y, va_arg(al, char *)));
 	case 'r':
-		return r_format(y, va_arg(al, char *));
+		return (r_format(y, va_arg(al, char *)));
 	case 'R':
-		return R_format(y, va_arg(al, char *));
+		return (R_format(y, va_arg(al, char *)));
 	case 'b':
-		return b_format(y, va_arg(al, unsigned int));
+		return (b_format(y, va_arg(al, unsigned int)));
 	case '\0':
 		exit(1);
 	case '%':
 		if (*y == '%' && *(y + 1) == '%')
 		{
-			return c_format("%c", '%');
+			return (c_format("%c", '%'));
 		}
 		/*Error if the two % aren't right next to each other*/
 		exit(1);
 	}
 }
 
+/**
+ * getspec - get the first specifier occurrence after a %
+ * @s: the start of the format string (minus the beginning %)
+ * Return: the spec char
+ */
 char getspec(char *s)
 {
 	int i;
-    
+
 	for (i = 0; 1 ; i++)
 	{
 		switch (s[i])
@@ -65,12 +77,18 @@ char getspec(char *s)
 		case 'b':
 		case '%':
 		case '\0':
-			return s[i];
+			return (s[i]);
 		}
 	}
 }
 
-int _printf(const char *fmt, ... )
+/**
+ * _printf - the custom implementation of the printf function
+ * @fmt: the format string
+ *
+ * Return: the number of characters printed
+ */
+int _printf(const char *fmt, ...)
 {
 	int i;
 	char tmp;
