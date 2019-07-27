@@ -4,7 +4,7 @@
   *
   *
   */
-void get_oct(int n)
+void get_oct(unsigned int n)
 {
 	int temp = 0;
 
