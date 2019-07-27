@@ -26,5 +26,5 @@ void rec_r_form(char *data)
 	if (*data == '\0')
 		return;
 	rec_r_form(data + 1);
-	_putchar(data);
+	_putchar(*data);
 }
