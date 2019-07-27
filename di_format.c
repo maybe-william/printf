@@ -9,6 +9,19 @@ int di_format(char *format, int n)
 {
 	int count = 1, divide = 1;
 
+	if (n < 0 && n > -2147483648)
+	{
+		n *= -1;
+		_putchar('-');
+	}
+
+	if (n == -2147483648)
+	{
+		n -= -1;
+		n *= -1;
+		_putchar('-');
+	}
+
 	while (divide <= n / 10)
 	{
 		count++;
@@ -17,6 +30,8 @@ int di_format(char *format, int n)
 
 	while (count > 0)
 	{
+		if (n == -2147483648 && divide == 1)
+			n += 1;
 		_putchar((n / divide) + '0');
 		n %= divide;
 		divide /= 10;
