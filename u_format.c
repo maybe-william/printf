@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
-  *
-  *
-  *
+  * u_format - prints unsigned int
+  * @format: format specifier
+  * @n: input unsigned int
+  * Return: length of format specifier
   */
 int u_format(char *format, unsigned int n)
 {
@@ -22,13 +23,4 @@ int u_format(char *format, unsigned int n)
 		count--;
 	}
 	return (2);
-}
-
-int main(void)
-{
-	unsigned int i = 123456789;
-
-	u_format("%u", i);
-
-	return (0);
 }

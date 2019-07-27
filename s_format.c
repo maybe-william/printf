@@ -1,7 +1,9 @@
-#include "print.h"
+#include "holberton.h"
 /**
-  *
-  *
+  * s_format - prints string
+  * @format: format specifier
+  * @s: input string
+  * Return: length of format specifier
   */
 int s_format(char *format, char *s)
 {
@@ -17,11 +19,4 @@ int s_format(char *format, char *s)
 		temp++;
 	}
 	return (2);
-}
-
-int main(void)
-{
-	s_format("%s", "Hello, World");
-
-	return (0);
 }
