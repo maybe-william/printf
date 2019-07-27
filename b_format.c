@@ -11,7 +11,8 @@ void b_form_rec(unsigned int x);
 int b_format(char *spec, unsigned int data)
 {
 	b_form_rec(data);
-
+	if (!data)
+		_putchar('0');
 	/*The default spec length is 2*/
 	return (2);
 }
@@ -25,5 +26,5 @@ void b_form_rec(unsigned int x)
 	if (!x)
 		return;
 	b_form_rec(x / 2);
-	_putchar(x % 2);
+	_putchar(x % 2 + '0');
 }

@@ -38,15 +38,16 @@ int funcswitch(char *y, char specifier, va_list al)
 		return (R_format(y, va_arg(al, char *)));
 	case 'b':
 		return (b_format(y, va_arg(al, unsigned int)));
-	case '\0':
-		exit(1);
 	case '%':
 		if (*y == '%' && *(y + 1) == '%')
 		{
 			return (c_format("%c", '%'));
 		}
-		/*Error if the two % aren't right next to each other*/
-		exit(1);
+		/*Print the spec if the two % aren't right next to each other*/
+	default:
+		c_format("%c", '%');
+		c_format("%c", specifier);
+		return (2);
 	}
 }
 
@@ -76,9 +77,14 @@ char getspec(char *s)
 		case 'r':
 		case 'R':
 		case 'b':
-		case '%':
-		case '\0':
 			return (s[i]);
+		case '%':
+			if (i == 0)
+				return (s[i]);
+			else
+				return (s[0]);
+		case '\0':
+			return (s[0]);
 		}
 	}
 }
