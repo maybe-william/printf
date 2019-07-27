@@ -9,7 +9,7 @@ int u_format(char *format, unsigned int n)
 {
 	int count = 1, divide = 1;
 
-	while (divide <= n/10)
+	while (divide <= n / 10)
 	{
 		count++;
 		divide *= 10;
