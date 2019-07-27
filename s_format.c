@@ -5,7 +5,7 @@
   * @s: input string
   * Return: length of format specifier
   */
-int s_format(char *format, char *s)
+int s_format(char *format, char *s, int *q)
 {
 	char *temp;
 
@@ -15,7 +15,7 @@ int s_format(char *format, char *s)
 
 	while (*temp)
 	{
-		write(1, temp, 1);
+		_putchar(*temp, q);
 		temp++;
 	}
 	return (2);

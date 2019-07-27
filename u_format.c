@@ -5,7 +5,7 @@
   * @n: input unsigned int
   * Return: length of format specifier
   */
-int u_format(char *format, unsigned int n)
+int u_format(char *format, unsigned int n, int *q)
 {
 	int count = 1, divide = 1;
 
@@ -17,7 +17,7 @@ int u_format(char *format, unsigned int n)
 
 	while (count > 0)
 	{
-		_putchar((n / divide) + '0');
+		_putchar((n / divide) + '0', q);
 		n %= divide;
 		divide /= 10;
 		count--;
