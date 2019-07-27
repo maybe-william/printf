@@ -1,7 +1,5 @@
 #include "holberton.h"
 
-void rec_r_form(char *);
-
 /**
  * R_format - print a string in ROT13
  * @spec: the spec string
