@@ -15,7 +15,7 @@ void get_oct(int n)
 		_putchar(temp + 48);
 	}
 }
-int o_format(char *format, int n)
+int o_format(char *format, unsigned int n)
 {
 	get_oct(n);
 

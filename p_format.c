@@ -10,7 +10,7 @@ int p_format(char *spec, void *data)
 {
 	_putchar('0');
 	_putchar('x');
-	x_format((unsigned long int)data);
+	x_format("%x", (unsigned long int)data);
 	/*The default spec length is 2*/
 	return (2);
 }
