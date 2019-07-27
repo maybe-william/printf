@@ -4,7 +4,7 @@
   *
   *
   */
-void get_hex(int n)
+void get_hexX(int unsigned n)
 {
 	int temp = 0;
 
@@ -14,21 +14,21 @@ void get_hex(int n)
 
 		if (temp < 10)
 		{
-			get_hex(n / 16);
+			get_hexX(n / 16);
 			_putchar(temp + 48);
 		}
 
 		else
 		{
-			get_hex(n / 16);
+			get_hexX(n / 16);
 			_putchar(temp + 55);
 		}
 	}
 }
 
-int X_format(char *format, int n)
+int X_format(char *format, unsigned int n)
 {
-	get_hex(n);
+	get_hexX(n);
 
 	return (2);
 }

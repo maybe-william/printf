@@ -23,7 +23,7 @@ int b_format(char *spec, unsigned int data)
 void b_form_rec(unsigned int x)
 {
 	if (!x)
-		return
+		return;
 	b_form_rec(x / 2);
-	_putchar(y % 2);
+	_putchar(x % 2);
 }
