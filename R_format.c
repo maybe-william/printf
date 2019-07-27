@@ -6,7 +6,7 @@
  * @data: the string to print
  * Return: the length of the spec string (to skip over it)
  */
-int R_format(char *spec, char *data)
+int R_format(char *spec, char *data, int *q)
 {
 	char *s1;
 	int i, printed;
@@ -24,13 +24,13 @@ int R_format(char *spec, char *data)
 		{
 			if (*s1 == reg[i])
 			{
-				_putchar(lt[i]);
+				_putchar(lt[i], q);
 				printed = 1;
 				break;
 			}
 		}
 		if (!printed)
-			_putchar(*s1);
+			_putchar(*s1, q);
 		s1 = s1 + 1;
 	}
 	/*The default spec length is 2*/

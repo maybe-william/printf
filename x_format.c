@@ -5,7 +5,7 @@
   *
   *
   */
-void get_hexx(long int unsigned n)
+void get_hexx(long int unsigned n, int *q)
 {
 	int temp = 0;
 
@@ -15,21 +15,21 @@ void get_hexx(long int unsigned n)
 
 		if (temp < 10)
 		{
-			get_hexx(n / 16);
-			_putchar(temp + 48);
+			get_hexx(n / 16, q);
+			_putchar(temp + 48, q);
 		}
 		else
 		{
-			get_hexx(n / 16);
-			_putchar(temp + 87);
+			get_hexx(n / 16, q);
+			_putchar(temp + 87, q);
 		}
 	}
 }
 
 
-int x_format(char *format, long int unsigned n)
+int x_format(char *format, long int unsigned n, int *q)
 {
-	get_hexx(n);
+	get_hexx(n, q);
 
 	return (2);
 }

@@ -11,7 +11,7 @@ void get_oct(unsigned int n, int *i)
 	if (n != 0)
 	{
 		temp = n % 8;
-		get_oct(n / 8);
+		get_oct(n / 8, i);
 		_putchar(temp + 48, i);
 	}
 }

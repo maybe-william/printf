@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-void b_form_rec(unsigned int x);
+void b_form_rec(unsigned int x, int *n);
 
 /**
  * b_format - print a number in binary
@@ -25,6 +25,6 @@ void b_form_rec(unsigned int x, int *n)
 {
 	if (!x)
 		return;
-	b_form_rec(x / 2);
+	b_form_rec(x / 2, n);
 	_putchar(x % 2 + '0', n);
 }

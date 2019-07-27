@@ -9,44 +9,44 @@
  * @al: the va_list to pull args from
  * Return: The amount to shift the pointer forward in the calling function
  */
-int funcswitch(char *y, char specifier, va_list al)
+int funcswitch(char *y, char specifier, va_list al, int *q)
 {
 	switch (specifier)
 	{
 	case 'd':
 	case 'i':
-		return (di_format(y, va_arg(al, int)));
+		return (di_format(y, va_arg(al, int), q));
 	case 'o':
-		return (o_format(y, va_arg(al, int)));
+		return (o_format(y, va_arg(al, int), q));
 	case 'u':
-		return (u_format(y, va_arg(al, unsigned int)));
+		return (u_format(y, va_arg(al, unsigned int), q));
 	case 'x':
-		return (x_format(y, va_arg(al, unsigned int)));
+		return (x_format(y, va_arg(al, unsigned int), q));
 	case 'X':
-		return (X_format(y, va_arg(al, unsigned int)));
+		return (X_format(y, va_arg(al, unsigned int), q));
 	case 'c':
-		return (c_format(y, va_arg(al, int)));
+		return (c_format(y, va_arg(al, int), q));
 	case 's':
-		return (s_format(y, va_arg(al, char *)));
+		return (s_format(y, va_arg(al, char *), q));
 	case 'p':
-		return (p_format(y, va_arg(al, void *)));
+		return (p_format(y, va_arg(al, void *), q));
 	case 'S':
-		return (S_format(y, va_arg(al, char *)));
+		return (S_format(y, va_arg(al, char *), q));
 	case 'r':
-		return (r_format(y, va_arg(al, char *)));
+		return (r_format(y, va_arg(al, char *), q));
 	case 'R':
-		return (R_format(y, va_arg(al, char *)));
+		return (R_format(y, va_arg(al, char *), q));
 	case 'b':
-		return (b_format(y, va_arg(al, unsigned int)));
+		return (b_format(y, va_arg(al, unsigned int), q));
 	case '%':
 		if (*y == '%' && *(y + 1) == '%')
 		{
-			return (c_format("%c", '%'));
+			return (c_format("%c", '%', q));
 		}
 		/*Print the spec if the two % aren't right next to each other*/
 	default:
-		c_format("%c", '%');
-		c_format("%c", specifier);
+		c_format("%c", '%', q);
+		c_format("%c", specifier, q);
 		return (2);
 	}
 }
@@ -100,6 +100,7 @@ int _printf(const char *fmt, ...)
 	int i;
 	char tmp;
 	va_list vl;
+	int q = 0;
 
 	va_start(vl, fmt);
 
@@ -109,12 +110,13 @@ int _printf(const char *fmt, ...)
 		if (fmt[i] == '%')
 		{
 			tmp = getspec((char *)fmt + i + 1);
-			i = i + funcswitch((char *)fmt + i, tmp, vl);
+			i = i + funcswitch((char *)fmt + i, tmp, vl, &q);
 		} else
 		{
-			c_format("%c", fmt[i]);
+			c_format("%c", fmt[i], &q);
 			i = i + 1;
 		}
 	}
 	va_end(vl);
+	return q;
 }

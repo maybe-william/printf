@@ -15,7 +15,7 @@ int s_format(char *format, char *s, int *q)
 
 	while (*temp)
 	{
-		_putchar(temp, q);
+		_putchar(*temp, q);
 		temp++;
 	}
 	return (2);

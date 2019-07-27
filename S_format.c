@@ -37,7 +37,7 @@ int S_format(char *format, char *s, int *n)
 			check = hex_count(temp);
 			if ( check == 1)
 				_putchar('0', n);
-			X_format("%X", temp);
+			X_format("%X", temp, n);
 		}
 		else
 			_putchar(*copy, n);
