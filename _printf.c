@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * funcswitch - dispatch the appropriate data to the appropriate formatter
@@ -101,11 +102,12 @@ int _printf(const char *fmt, ...)
 	{
 		if (fmt[i] == '%')
 		{
-			tmp = getspec(fmt + 1);
-			i = i + funcswitch(fmt + i, tmp, vl);
+			tmp = getspec((char *)fmt + i + 1);
+			i = i + funcswitch((char *)fmt + i, tmp, vl);
 		} else
 		{
-			i = i + c_format("%c", fmt[i]);
+			c_format("%c", fmt[i]);
+			i = i + 1;
 		}
 	}
 	va_end(vl);
