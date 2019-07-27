@@ -3,12 +3,12 @@
   * print_rev - prints string in reverse
   * @s: input string
   */
-void print_rev(char *s)
+void print_rev(char *s, int *n)
 {
 	if (*s)
 	{
 		print_rev(s + 1);
-		_putchar(*s);
+		_putchar(*s, n);
 	}
 }
 /**
@@ -17,9 +17,9 @@ void print_rev(char *s)
   * @s: input string
   * Return: format specifier length
   */
-int r_format(char *format, char *s)
+int r_format(char *format, char *s, int *n)
 {
-	print_rev(s);
+	print_rev(s, n);
 
 	return (2);
 }

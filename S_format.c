@@ -19,7 +19,7 @@ int hex_count(int n)
 	return (count);
 }
 
-int S_format(char *format, char *s)
+int S_format(char *format, char *s, int *n)
 {
 	char *copy, temp;
 
@@ -32,15 +32,15 @@ int S_format(char *format, char *s)
 		if (*copy < 32 || *copy >= 127)
 		{
 			temp = *copy;
-			_putchar('\\');
-			_putchar('x');
+			_putchar('\\', n);
+			_putchar('x', n);
 			check = hex_count(temp);
 			if ( check == 1)
-				_putchar('0');
+				_putchar('0', n);
 			X_format("%X", temp);
 		}
 		else
-			_putchar(*copy);
+			_putchar(*copy, n);
 		copy++;
 	}
 	return (2);

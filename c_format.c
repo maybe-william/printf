@@ -5,8 +5,8 @@
   * @c: input character
   * Return: number of characters in format specifier
   */
-int c_format(char *format, char c)
+int c_format(char *format, char c, int *n)
 {
-	write(1, &c, 1);
+	_putchar(c, n);
 	return (2);
 }
