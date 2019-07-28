@@ -12,11 +12,11 @@ int p_format(char *spec, void *data, int *n)
 	(void) spec;
 	if (data == (void *)0)
 	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('i');
-		_putchar('l');
-		_putchar(')');
+		_putchar('(', n);
+		_putchar('n', n);
+		_putchar('i', n);
+		_putchar('l', n);
+		_putchar(')', n);
 		return (2);
 	}
 	_putchar('0', n);
