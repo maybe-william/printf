@@ -1,9 +1,9 @@
 #include "holberton.h"
 /**
-  *
-  *
-  *
-  */
+ * get_oct - get the octal number recursively
+ * @n: the number to get
+ * @i: a pointer to the print counter
+ */
 void get_oct(unsigned int n, int *i)
 {
 	int temp = 0;
@@ -15,6 +15,14 @@ void get_oct(unsigned int n, int *i)
 		_putchar(temp + 48, i);
 	}
 }
+
+/**
+ * o_format - print an int like an octal number
+ * @format: the full specifier string
+ * @n: the number to print
+ * @i: a pointer to the print counter
+ * Return: the length of the specifier
+ */
 int o_format(char *format, unsigned int n, int *i)
 {
 	get_oct(n, i);

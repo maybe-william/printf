@@ -7,6 +7,7 @@
  * @y: The pointer to % in the spec string
  * @specifier: the spec character
  * @al: the va_list to pull args from
+ * @q: a pointer to the print counter
  * Return: The amount to shift the pointer forward in the calling function
  */
 int funcswitch(char *y, char specifier, va_list al, int *q)
@@ -100,6 +101,7 @@ int _printf(const char *fmt, ...)
 	int i;
 	char tmp;
 	va_list vl;
+	/* The print counter is q */
 	int q = 0;
 
 	va_start(vl, fmt);
@@ -118,5 +120,5 @@ int _printf(const char *fmt, ...)
 		}
 	}
 	va_end(vl);
-	return q;
+	return (q);
 }

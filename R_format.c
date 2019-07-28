@@ -4,6 +4,7 @@
  * R_format - print a string in ROT13
  * @spec: the spec string
  * @data: the string to print
+ * @q: a pointer to the print counter
  * Return: the length of the spec string (to skip over it)
  */
 int R_format(char *spec, char *data, int *q)

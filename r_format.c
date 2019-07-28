@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
-  * print_rev - prints string in reverse
-  * @s: input string
-  */
+ * print_rev - prints string in reverse
+ * @s: input string
+ * @n: a pointer to the print counter
+ */
 void print_rev(char *s, int *n)
 {
 	if (*s)
@@ -12,11 +13,12 @@ void print_rev(char *s, int *n)
 	}
 }
 /**
-  * r_format - sends string to print_rev
-  * @format: format specifier
-  * @s: input string
-  * Return: format specifier length
-  */
+ * r_format - sends string to print_rev
+ * @format: format specifier
+ * @s: input string
+ * @n: a pointer to the print counter
+ * Return: format specifier length
+ */
 int r_format(char *format, char *s, int *n)
 {
 	print_rev(s, n);

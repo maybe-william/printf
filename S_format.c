@@ -1,9 +1,10 @@
 #include "holberton.h"
+
 /**
-  *
-  *
-  *
-  */
+ * hex_count - count the hex digits
+ * @n: the number to count
+ * Return: the count
+ */
 int hex_count(int n)
 {
 	int temp = 0;
@@ -19,6 +20,13 @@ int hex_count(int n)
 	return (count);
 }
 
+/**
+ * S_format - print a string with non-visible characters escaped
+ * @format: the full specifier string
+ * @s: the string to print
+ * @n: a pointer to the print counter
+ * Return: the length of the specifier string
+ */
 int S_format(char *format, char *s, int *n)
 {
 	char *copy, temp;
@@ -35,7 +43,7 @@ int S_format(char *format, char *s, int *n)
 			_putchar('\\', n);
 			_putchar('x', n);
 			check = hex_count(temp);
-			if ( check == 1)
+			if (check == 1)
 				_putchar('0', n);
 			X_format("%X", temp, n);
 		}
