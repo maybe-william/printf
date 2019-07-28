@@ -39,6 +39,11 @@ int x_format(char *format, unsigned long int n, int *q)
 {
 	(void) format;
 
+	if (!n)
+	{
+		_putchar('0', q);
+		return (2);
+	}
 	get_hexx(n, q);
 
 	return (2);
