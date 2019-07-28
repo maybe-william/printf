@@ -14,6 +14,16 @@ int s_format(char *format, char *s, int *q)
 
 	temp = s;
 
+	if (temp == 0)
+	{
+		_putchar('(', q);
+		_putchar('n', q);
+		_putchar('u', q);
+		_putchar('l', q);
+		_putchar('l', q);
+		_putchar(')', q);
+		return (2);
+	}
 	while (*temp)
 	{
 		_putchar(*temp, q);
