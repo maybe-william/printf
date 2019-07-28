@@ -25,6 +25,8 @@ void get_oct(unsigned int n, int *i)
  */
 int o_format(char *format, unsigned int n, int *i)
 {
+	(void) format;
+
 	get_oct(n, i);
 
 	return (2);

@@ -9,6 +9,7 @@
  */
 int c_format(char *format, char c, int *n)
 {
+	(void) format;
 	_putchar(c, n);
 	return (2);
 }

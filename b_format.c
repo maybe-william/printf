@@ -11,6 +11,7 @@ void b_form_rec(unsigned int x, int *n);
  */
 int b_format(char *spec, unsigned int data, int *n)
 {
+	(void) spec;
 	b_form_rec(data, n);
 	if (!data)
 		_putchar('0', n);

@@ -7,8 +7,6 @@
  */
 int hex_count(int n)
 {
-	int temp = 0;
-
 	int count = 0;
 
 	while (n != 0)
@@ -32,6 +30,8 @@ int S_format(char *format, char *s, int *n)
 	char *copy, temp;
 
 	int check = 0;
+
+	(void) format;
 
 	copy = s;
 

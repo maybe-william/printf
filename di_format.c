@@ -10,6 +10,8 @@ int di_format(char *format, int n, int *q)
 {
 	int count = 1, divide = 1;
 
+	(void) format;
+
 	if (n < 0 && n > -2147483648)
 	{
 		n *= -1;

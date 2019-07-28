@@ -14,6 +14,8 @@ int R_format(char *spec, char *data, int *q)
 	char *reg;
 	char *lt;
 
+	(void) spec;
+
 	s1 = data;
 	reg = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	lt = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";

@@ -10,7 +10,7 @@ int s_format(char *format, char *s, int *q)
 {
 	char *temp;
 
-	int i;
+	(void) format;
 
 	temp = s;
 

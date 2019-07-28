@@ -8,7 +8,9 @@
   */
 int u_format(char *format, unsigned int n, int *q)
 {
-	int count = 1, divide = 1;
+	unsigned int count = 1, divide = 1;
+
+	(void) format;
 
 	while (divide <= n / 10)
 	{

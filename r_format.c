@@ -21,6 +21,8 @@ void print_rev(char *s, int *n)
  */
 int r_format(char *format, char *s, int *n)
 {
+	(void) format;
+
 	print_rev(s, n);
 
 	return (2);

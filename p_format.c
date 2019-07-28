@@ -9,6 +9,7 @@
  */
 int p_format(char *spec, void *data, int *n)
 {
+	(void) spec;
 	_putchar('0', n);
 	_putchar('x', n);
 	x_format("%x", (unsigned long int)data, n);

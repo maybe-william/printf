@@ -37,6 +37,8 @@ void get_hexx(unsigned long int n, int *q)
  */
 int x_format(char *format, unsigned long int n, int *q)
 {
+	(void) format;
+
 	get_hexx(n, q);
 
 	return (2);

@@ -36,6 +36,8 @@ void get_hexX(unsigned int n, int *i)
  */
 int X_format(char *format, unsigned int n, int *i)
 {
+	(void) format;
+
 	get_hexX(n, i);
 
 	return (2);
