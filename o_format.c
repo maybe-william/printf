@@ -27,6 +27,11 @@ int o_format(char *format, unsigned int n, int *i)
 {
 	(void) format;
 
+	if (!n)
+	{
+		_putchar('0', i);
+		return (2);
+	}
 	get_oct(n, i);
 
 	return (2);

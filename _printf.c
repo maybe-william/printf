@@ -41,11 +41,13 @@ int funcswitch(char *y, char specifier, va_list al, int *q)
 		return (b_format(y, va_arg(al, unsigned int), q));
 	case '%':
 		if (*y == '%' && *(y + 1) == '%')
-		{
 			return (c_format("%c", '%', q));
-		}
-		/*Print the spec if the two % aren't right next to each other*/
+	case '\0':
+/*!!!-risky behavior here-!!!*/
+		*q = -1;
+		return (1);
 	default:
+		/*Print the spec if the two % aren't right next to each other*/
 		c_format("%c", '%', q);
 		c_format("%c", specifier, q);
 		return (2);
@@ -103,6 +105,9 @@ int _printf(const char *fmt, ...)
 	va_list vl;
 	/* The print counter is q */
 	int q = 0;
+
+	if (!fmt)
+		return (-1);
 
 	va_start(vl, fmt);
 
