@@ -104,6 +104,9 @@ int _printf(const char *fmt, ...)
 	/* The print counter is q */
 	int q = 0;
 
+	if (!fmt)
+		return (-1);
+
 	va_start(vl, fmt);
 
 	i = 0;
