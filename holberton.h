@@ -7,7 +7,7 @@
 
 int _putchar(char c, int *);
 
-int di_format(char *, int, int *);
+int di_format(char *, long int, int *);
 
 int o_format(char *, unsigned int, int *);
 

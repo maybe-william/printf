@@ -6,26 +6,23 @@
  * @q: a pointer to the print counter
  * Return: length of format specifier
  */
-int di_format(char *format, int n, int *q)
+int di_format(char *format, long int n, int *q)
 {
-	int count = 1, divide = 1;
+	int count = 1, divide = 1, temp;
+
+	unsigned long i;
 
 	(void) format;
 
-	if (n < 0 && n > -2147483648)
+	if (n < 0)
 	{
-		n *= -1;
+		i = n * -1;
 		_putchar('-', q);
 	}
+	else
+		i = n;
 
-	if (n == -2147483648)
-	{
-		n -= -1;
-		n *= -1;
-		_putchar('-', q);
-	}
-
-	while (divide <= n / 10)
+	while (divide <= i / 10)
 	{
 		count++;
 		divide *= 10;
@@ -33,10 +30,8 @@ int di_format(char *format, int n, int *q)
 
 	while (count > 0)
 	{
-		if (n == -2147483648 && divide == 1)
-			n += 1;
-		_putchar((n / divide) + '0', q);
-		n %= divide;
+		_putchar((i / divide) + '0', q);
+		i %= divide;
 		divide /= 10;
 		count--;
 	}
