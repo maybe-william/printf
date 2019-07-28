@@ -1,10 +1,11 @@
 #include "holberton.h"
 /**
-  * di_format - prints int
-  * @format: format specifier
-  * @n: input int
-  * Return: length of format specifier
-  */
+ * di_format - prints int
+ * @format: format specifier
+ * @n: input int
+ * @q: a pointer to the print counter
+ * Return: length of format specifier
+ */
 int di_format(char *format, int n, int *q)
 {
 	int count = 1, divide = 1;

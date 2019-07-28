@@ -1,10 +1,11 @@
 #include "holberton.h"
+
 /**
-  *
-  *
-  *
-  */
-void get_hexX(int unsigned n, int *i)
+ * get_hexX - print the hex value recursively
+ * @n: the number to print
+ * @i: a pointer to the print counter
+ */
+void get_hexX(unsigned int n, int *i)
 {
 	int temp = 0;
 
@@ -26,6 +27,13 @@ void get_hexX(int unsigned n, int *i)
 	}
 }
 
+/**
+ * X_format - print an integer in capital hexadecimal notation
+ * @format: the full specifier string
+ * @n: the number to print
+ * @i: a pointer to the print counter
+ * Return: the length of the specifier string
+ */
 int X_format(char *format, unsigned int n, int *i)
 {
 	get_hexX(n, i);

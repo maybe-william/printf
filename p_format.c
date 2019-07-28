@@ -4,6 +4,7 @@
  * p_format - print a pointer
  * @spec: the spec string
  * @data: the pointer to print
+ * @n: a pointer to the print counter
  * Return: the length of the spec string (to skip over it)
  */
 int p_format(char *spec, void *data, int *n)

@@ -3,6 +3,7 @@
   * u_format - prints unsigned int
   * @format: format specifier
   * @n: input unsigned int
+  * @q: a pointer to the print counter
   * Return: length of format specifier
   */
 int u_format(char *format, unsigned int n, int *q)
