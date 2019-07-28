@@ -8,7 +8,7 @@
  */
 int di_format(char *format, long int n, int *q)
 {
-	int count = 1, divide = 1;
+	unsigned int count = 1, divide = 1;
 
 	unsigned long i;
 
