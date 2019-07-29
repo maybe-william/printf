@@ -2,9 +2,9 @@
 /**
  * get_oct - get the octal number recursively
  * @n: the number to get
- * @i: a pointer to the print counter
+ * @i: a pointer to the globs
  */
-void get_oct(unsigned int n, int *i)
+void get_oct(unsigned int n, glob *i)
 {
 	int temp = 0;
 
@@ -20,10 +20,10 @@ void get_oct(unsigned int n, int *i)
  * o_format - print an int like an octal number
  * @format: the full specifier string
  * @n: the number to print
- * @i: a pointer to the print counter
+ * @i: a pointer to the globs
  * Return: the length of the specifier
  */
-int o_format(char *format, unsigned int n, int *i)
+int o_format(char *format, unsigned int n, glob *i)
 {
 	(void) format;
 

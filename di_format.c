@@ -3,10 +3,10 @@
  * di_format - prints int
  * @format: format specifier
  * @n: input int
- * @q: a pointer to the print counter
+ * @q: a pointer to the globs
  * Return: length of format specifier
  */
-int di_format(char *format, long int n, int *q)
+int di_format(char *format, long int n, glob *q)
 {
 	unsigned int count = 1, divide = 1;
 

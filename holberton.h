@@ -5,31 +5,46 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-int _putchar(char c, int *);
+/**
+ * struct glob - 'global variables' passed eventually to _putchar
+ * @buf: a write buffer of size 1024
+ * @bufind: the current buffer index
+ * @count: the current printed char count
+ */
+typedef struct glob
+{
+	char buf[1024];
+	int bufind;
+	int count;
+} glob;
 
-int di_format(char *, long int, int *);
+int resetbuf(char *);
 
-int o_format(char *, unsigned int, int *);
+int _putchar(char c, glob *);
 
-int u_format(char *, unsigned int, int *);
+int di_format(char *, long int, glob *);
 
-int x_format(char *, unsigned long int, int *);
+int o_format(char *, unsigned int, glob *);
 
-int X_format(char *, unsigned int, int *);
+int u_format(char *, unsigned int, glob *);
 
-int c_format(char *, char, int *);
+int x_format(char *, unsigned long int, glob *);
 
-int s_format(char *, char *, int *);
+int X_format(char *, unsigned int, glob *);
 
-int p_format(char *, void *, int *);
+int c_format(char *, char, glob *);
 
-int S_format(char *, char *, int *);
+int s_format(char *, char *, glob *);
 
-int r_format(char *, char *, int *);
+int p_format(char *, void *, glob *);
 
-int R_format(char *, char *, int *);
+int S_format(char *, char *, glob *);
 
-int b_format(char *, unsigned int, int *);
+int r_format(char *, char *, glob *);
+
+int R_format(char *, char *, glob *);
+
+int b_format(char *, unsigned int, glob *);
 
 int _printf(const char *, ...);
 
