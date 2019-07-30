@@ -10,8 +10,6 @@ int u_format(char *format, unsigned long int n, glob *q)
 {
 	unsigned int count = 1, divide = 1, spec = 1;
 
-	(void)format;
-
 	while (*format != 'u')
 	{
 		spec++;
