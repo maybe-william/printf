@@ -26,7 +26,7 @@ void get_oct(unsigned long int n, glob *i)
 
 int o_format(char *format, unsigned long int n, glob *i)
 {
-	int count = 0;
+	int count = 1;
 
 	if (n && format[1] == '#')
 		_putchar('0', i);
@@ -35,6 +35,7 @@ int o_format(char *format, unsigned long int n, glob *i)
 	{
 		count++;
 	}
+	count++;
 
 	if (!n)
 	{
