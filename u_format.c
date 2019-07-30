@@ -10,8 +10,7 @@ int u_format(char *format, unsigned int n, glob *q)
 {
 	unsigned int count = 1, divide = 1;
 
-	(void) format;
-
+	(void)format;
 	while (divide <= n / 10)
 	{
 		count++;

@@ -25,14 +25,20 @@ void get_oct(unsigned int n, glob *i)
  */
 int o_format(char *format, unsigned int n, glob *i)
 {
-	(void) format;
+	int ret;
+
+	ret = 0;
+	if (n && format[1] == '#')
+		_putchar('0', i);
+	if (format[1] == '#')
+		ret++;
 
 	if (!n)
 	{
 		_putchar('0', i);
-		return (2);
+		return (ret + 2);
 	}
 	get_oct(n, i);
 
-	return (2);
+	return (ret + 2);
 }

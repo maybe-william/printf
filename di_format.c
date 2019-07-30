@@ -11,8 +11,7 @@ int di_format(char *format, long int n, glob *q)
 	unsigned int count = 1, divide = 1;
 
 	unsigned long i;
-
-	(void) format;
+	int ret = 0;
 
 	if (n < 0)
 	{
@@ -20,7 +19,15 @@ int di_format(char *format, long int n, glob *q)
 		_putchar('-', q);
 	}
 	else
+	{
 		i = n;
+		if (format[1] == '+' || format[1] == ' ')
+		{
+			_putchar(format[1], q);
+		}
+	}
+	if (format[1] == '+' || format[1] == ' ')
+		ret++;
 
 	while (divide <= i / 10)
 	{
@@ -35,5 +42,5 @@ int di_format(char *format, long int n, glob *q)
 		divide /= 10;
 		count--;
 	}
-	return (2);
+	return (ret + 2);
 }
