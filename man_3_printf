@@ -1,4 +1,4 @@
-.TH _PRINTF(3) "7/29/2019" "1.00" "_printf Man Page"
+.TH _PRINTF "3" "7/29/2019" "1.00" "_printf Man Page"
 .SH NAME
 .B _printf
 - format and print data
@@ -45,9 +45,9 @@ The printf function produces formatted output and writes the output to stdout(st
 .B R
 - Converts string to ROT13 and prints.
 .SH CONFORMING TO
-Blah blah blah C99
+Conforms to C89 and C99.
 .SH NOTES
-.B holberton
+This function does very little type-safety work as a consequence of how variadic functions work in general. Use at your own risk and absolutely double-check all of the types you pass in if you wish to avoid strange bugs.
 .SH EXAMPLE
 .B Print string:
 printf("%s", "Hello, World");
