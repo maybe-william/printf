@@ -37,23 +37,25 @@ void get_hexx(unsigned long int n, glob *q)
  */
 int x_format(char *format, unsigned long int n, glob *q)
 {
-	int ret;
+	int count = 1;
 
-	ret = 0;
 	if (n && format[1] == '#')
 	{
 		_putchar('0', q);
 		_putchar('x', q);
 	}
-	if (format[1] == '#')
-		ret++;
 
+	while (*format != 'x')
+	{
+		count++;
+		format++;
+	}
 	if (!n)
 	{
 		_putchar('0', q);
-		return (ret + 2);
+		return (count);
 	}
 	get_hexx(n, q);
 
-	return (ret + 2);
+	return (count);
 }

@@ -1,0 +1,63 @@
+.TH _PRINTF(3) "7/29/2019" "1.00" "_printf Man Page"
+.SH NAME
+.B _printf
+- format and print data
+.SH SYNOPSIS
+int _printf(const char *format, ...);
+.SH DESCRIPTION
+The printf function produces formatted output and writes the output to stdout(standard output stream). The output is formatted based on the included format specifiers, which start with '%' and are listed below. All normal characters in the format string are printed to stdout unchanged. The function will return the number of characters printed if successful.
+.PP
+.B Format Specifiers
+.PP
+.B c
+- Converts int to unsigned char and prints a single character.
+.PP
+.B s
+- Prints all characters from string excluding the null byte.
+.PP
+.B d, i
+- Prints int argument.
+.PP
+.B b
+- Converts int to binary and prints.
+.PP
+.B u
+- Converts int to unsigned and prints.
+.PP
+.B o
+- Converts int to octal and prints.
+.PP
+.B x
+- Converts int to lowercase hexadecimal and prints.
+.PP
+.B X
+- Converts int to uppercase hexadecimal and prints.
+.PP
+.B S
+- Similar to s, but non printable characters are replaced with \\x followed by the ASCII code value in hexadecimal.
+.PP
+.B p
+- Prints the address of a pointer.
+.PP
+.B r
+- Prints string in reverse
+.PP
+.B R
+- Converts string to ROT13 and prints.
+.SH CONFORMING TO
+Blah blah blah C99
+.SH NOTES
+.B holberton
+.SH EXAMPLE
+.B Print string:
+printf("%s", "Hello, World");
+.PP
+.B Print int:
+printf("%d", 12345);
+.PP
+.B Print character:
+printf("%c", 'a');
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+William Dyrland-Marquis and Danny Hollman

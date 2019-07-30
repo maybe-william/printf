@@ -5,7 +5,7 @@
  * @n: the number to print
  * @i: a pointer to the globs
  */
-void get_hexX(unsigned int n, glob *i)
+void get_hexX(unsigned long int n, glob *i)
 {
 	int temp = 0;
 
@@ -34,7 +34,7 @@ void get_hexX(unsigned int n, glob *i)
  * @i: a pointer to the globs
  * Return: the length of the specifier string
  */
-int X_format(char *format, unsigned int n, glob *i)
+int X_format(char *format, unsigned long int n, glob *i)
 {
 	int ret;
 
@@ -47,6 +47,11 @@ int X_format(char *format, unsigned int n, glob *i)
 	if (format[1] == '#')
 		ret++;
 
+	while (*format != 'X')
+	{
+		count++;
+		format++;
+	}
 
 	if (!n)
 	{

@@ -4,7 +4,7 @@
  * @n: the number to get
  * @i: a pointer to the globs
  */
-void get_oct(unsigned int n, glob *i)
+void get_oct(unsigned long int n, glob *i)
 {
 	int temp = 0;
 
@@ -23,16 +23,22 @@ void get_oct(unsigned int n, glob *i)
  * @i: a pointer to the globs
  * Return: the length of the specifier
  */
-int o_format(char *format, unsigned int n, glob *i)
-{
-	int ret;
 
-	ret = 0;
+int o_format(char *format, unsigned long int n, glob *i)
+{
+  int count = 2;
+  
 	if (n && format[1] == '#')
 		_putchar('0', i);
-	if (format[1] == '#')
-		ret++;
 
+	(void) format;
+	/*
+	while (*format != 'o');
+	{
+		count++;
+		format++;
+	}
+	*/
 	if (!n)
 	{
 		_putchar('0', i);
@@ -40,5 +46,5 @@ int o_format(char *format, unsigned int n, glob *i)
 	}
 	get_oct(n, i);
 
-	return (ret + 2);
+	return (count);
 }

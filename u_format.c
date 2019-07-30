@@ -6,11 +6,18 @@
   * @q: a pointer to the globs
   * Return: length of format specifier
   */
-int u_format(char *format, unsigned int n, glob *q)
+int u_format(char *format, unsigned long int n, glob *q)
 {
-	unsigned int count = 1, divide = 1;
+	unsigned int count = 1, divide = 1, spec = 1;
 
 	(void)format;
+  
+  while (*format != 'u')
+  {
+    spec++;
+    format++;
+  }
+  
 	while (divide <= n / 10)
 	{
 		count++;
@@ -24,5 +31,5 @@ int u_format(char *format, unsigned int n, glob *q)
 		divide /= 10;
 		count--;
 	}
-	return (2);
+	return (spec);
 }

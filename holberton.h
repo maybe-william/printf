@@ -22,15 +22,15 @@ int resetbuf(char *);
 
 int _putchar(char c, glob *);
 
-int di_format(char *, long int, glob *);
+int di_format(char *, unsigned long int, glob *);
 
-int o_format(char *, unsigned int, glob *);
+int o_format(char *, unsigned long int, glob *);
 
-int u_format(char *, unsigned int, glob *);
+int X_format(char *, unsigned long int, glob *);
+
+int u_format(char *, unsigned long int, glob *);
 
 int x_format(char *, unsigned long int, glob *);
-
-int X_format(char *, unsigned int, glob *);
 
 int c_format(char *, char, glob *);
 

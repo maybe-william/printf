@@ -16,15 +16,15 @@ int funcswitch(char *y, char specifier, va_list al, glob *q)
 	{
 	case 'd':
 	case 'i':
-		return (di_format(y, va_arg(al, int), q));
+		return (di_format(y, va_arg(al, long int), q));
 	case 'o':
-		return (o_format(y, va_arg(al, int), q));
+		return (o_format(y, va_arg(al, unsigned long int), q));
 	case 'u':
-		return (u_format(y, va_arg(al, unsigned int), q));
+		return (u_format(y, va_arg(al, unsigned long int), q));
 	case 'x':
-		return (x_format(y, va_arg(al, unsigned int), q));
+		return (x_format(y, va_arg(al, unsigned long int), q));
 	case 'X':
-		return (X_format(y, va_arg(al, unsigned int), q));
+		return (X_format(y, va_arg(al, unsigned long int), q));
 	case 'c':
 		return (c_format(y, va_arg(al, int), q));
 	case 's':

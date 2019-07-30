@@ -8,11 +8,18 @@
  */
 int di_format(char *format, long int n, glob *q)
 {
-	unsigned int count = 1, divide = 1;
+	unsigned int count = 1, spec = 1, divide = 1;
 
 	unsigned long i;
-	int ret = 0;
 
+	if (*(format+1) == 'h')
+	{
+		n = (short int) n;
+	}
+	if (*(format+1) != 'l')
+	{
+		n = (int) n;
+	}
 	if (n < 0)
 	{
 		i = n * -1;
@@ -26,8 +33,12 @@ int di_format(char *format, long int n, glob *q)
 			_putchar(format[1], q);
 		}
 	}
-	if (format[1] == '+' || format[1] == ' ')
-		ret++;
+  
+	while (*format != 'd' && *format != 'i')
+	{
+		spec++;
+		format++;
+	}
 
 	while (divide <= i / 10)
 	{
@@ -42,5 +53,5 @@ int di_format(char *format, long int n, glob *q)
 		divide /= 10;
 		count--;
 	}
-	return (ret + 2);
+	return (spec);
 }
