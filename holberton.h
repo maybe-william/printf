@@ -22,7 +22,7 @@ int resetbuf(char *);
 
 int _putchar(char c, glob *);
 
-int di_format(char *, unsigned long int, glob *);
+int di_format(char *, long int, glob *);
 
 int o_format(char *, unsigned long int, glob *);
 

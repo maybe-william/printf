@@ -36,16 +36,14 @@ void get_hexX(unsigned long int n, glob *i)
  */
 int X_format(char *format, unsigned long int n, glob *i)
 {
-	int ret;
+	int count;
 
-	ret = 0;
+	count = 1;
 	if (n && format[1] == '#')
 	{
 		_putchar('0', i);
 		_putchar('X', i);
 	}
-	if (format[1] == '#')
-		ret++;
 
 	while (*format != 'X')
 	{
@@ -56,9 +54,9 @@ int X_format(char *format, unsigned long int n, glob *i)
 	if (!n)
 	{
 		_putchar('0', i);
-		return (ret + 2);
+		return (count);
 	}
 	get_hexX(n, i);
 
-	return (ret + 2);
+	return (count);
 }
