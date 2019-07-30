@@ -7,10 +7,10 @@
  * @y: The pointer to % in the spec string
  * @specifier: the spec character
  * @al: the va_list to pull args from
- * @q: a pointer to the print counter
+ * @q: a pointer to the globs
  * Return: The amount to shift the pointer forward in the calling function
  */
-int funcswitch(char *y, char specifier, va_list al, int *q)
+int funcswitch(char *y, char specifier, va_list al, glob *q)
 {
 	switch (specifier)
 	{
@@ -44,10 +44,9 @@ int funcswitch(char *y, char specifier, va_list al, int *q)
 			return (c_format("%c", '%', q));
 	case '\0':
 /*!!!-risky behavior here-!!!*/
-		*q = -1;
+		q->count = -1;
 		return (1);
 	default:
-		/*Print the spec if the two % aren't right next to each other*/
 		c_format("%c", '%', q);
 		c_format("%c", specifier, q);
 		return (2);
@@ -104,7 +103,11 @@ int _printf(const char *fmt, ...)
 	char tmp;
 	va_list vl;
 	/* The print counter is q */
-	int q = 0;
+	glob q;
+
+	q.count = 0;
+	q.bufind = 0;
+	resetbuf(q.buf);
 
 	if (!fmt)
 		return (-1);
@@ -125,5 +128,27 @@ int _printf(const char *fmt, ...)
 		}
 	}
 	va_end(vl);
-	return (q);
+
+	if (q.bufind)
+	{
+		write(1, q.buf, q.bufind);
+	}
+
+	return (q.count);
+}
+
+/**
+ * resetbuf - reset the buffer to be full of zeros
+ * @x: a buffer of size 1024 to set to zeros
+ * Return: always 0
+ */
+int resetbuf(char *x)
+{
+	int i;
+
+	for (i = 0; i < 1024; i++)
+	{
+		x[i] = '\0';
+	}
+	return (0);
 }

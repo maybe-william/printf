@@ -3,10 +3,10 @@
 /**
  * get_hexx - print the hex number recursively
  * @n: the number to print
- * @q: a pointer to the print counter
+ * @q: a pointer to the globs
  *
  */
-void get_hexx(unsigned long int n, int *q)
+void get_hexx(unsigned long int n, glob *q)
 {
 	int temp = 0;
 
@@ -32,14 +32,18 @@ void get_hexx(unsigned long int n, int *q)
  * x_format - print a hex number
  * @format: the full specifier string
  * @n: the number to print
- * @q: a pointer to the print counter
+ * @q: a pointer to the globs
  * Return: the length of the specifier string
  */
-int x_format(char *format, unsigned long int n, int *q)
+int x_format(char *format, unsigned long int n, glob *q)
 {
 	int count = 1;
 
-	(void) format;
+	if (n && format[1] == '#')
+	{
+		_putchar('0', q);
+		_putchar('x', q);
+	}
 
 	while (*format != 'x')
 	{
@@ -49,7 +53,7 @@ int x_format(char *format, unsigned long int n, int *q)
 	if (!n)
 	{
 		_putchar('0', q);
-		return (2);
+		return (count);
 	}
 	get_hexx(n, q);
 

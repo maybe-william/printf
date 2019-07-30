@@ -22,10 +22,10 @@ int hex_count(int n)
  * S_format - print a string with non-visible characters escaped
  * @format: the full specifier string
  * @s: the string to print
- * @n: a pointer to the print counter
+ * @n: a pointer to the globs
  * Return: the length of the specifier string
  */
-int S_format(char *format, char *s, int *n)
+int S_format(char *format, char *s, glob *n)
 {
 	char *copy, temp;
 

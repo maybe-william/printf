@@ -3,16 +3,14 @@
  * di_format - prints int
  * @format: format specifier
  * @n: input int
- * @q: a pointer to the print counter
+ * @q: a pointer to the globs
  * Return: length of format specifier
  */
-int di_format(char *format, long int n, int *q)
+int di_format(char *format, long int n, glob *q)
 {
-	int count = 1, divide = 1, spec = 1;
+	unsigned int count = 1, spec = 1, divide = 1;
 
 	unsigned long i;
-
-	(void) format;
 
 	if (*(format+1) == 'h')
 	{
@@ -28,9 +26,14 @@ int di_format(char *format, long int n, int *q)
 		_putchar('-', q);
 	}
 	else
+	{
 		i = n;
-
-
+		if (format[1] == '+' || format[1] == ' ')
+		{
+			_putchar(format[1], q);
+		}
+	}
+  
 	while (*format != 'd' && *format != 'i')
 	{
 		spec++;

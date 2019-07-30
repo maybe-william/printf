@@ -3,15 +3,21 @@
   * u_format - prints unsigned int
   * @format: format specifier
   * @n: input unsigned int
-  * @q: a pointer to the print counter
+  * @q: a pointer to the globs
   * Return: length of format specifier
   */
-int u_format(char *format, unsigned long int n, int *q)
+int u_format(char *format, unsigned long int n, glob *q)
 {
-	unsigned int count = 1, divide = 1;
+	unsigned int count = 1, divide = 1, spec = 1;
 
-	(void) format;
-
+	(void)format;
+  
+  while (*format != 'u')
+  {
+    spec++;
+    format++;
+  }
+  
 	while (divide <= n / 10)
 	{
 		count++;
@@ -25,5 +31,5 @@ int u_format(char *format, unsigned long int n, int *q)
 		divide /= 10;
 		count--;
 	}
-	return (2);
+	return (spec);
 }

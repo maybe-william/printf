@@ -3,9 +3,9 @@
 /**
  * get_hexX - print the hex value recursively
  * @n: the number to print
- * @i: a pointer to the print counter
+ * @i: a pointer to the globs
  */
-void get_hexX(unsigned long int n, int *i)
+void get_hexX(unsigned long int n, glob *i)
 {
 	int temp = 0;
 
@@ -31,14 +31,21 @@ void get_hexX(unsigned long int n, int *i)
  * X_format - print an integer in capital hexadecimal notation
  * @format: the full specifier string
  * @n: the number to print
- * @i: a pointer to the print counter
+ * @i: a pointer to the globs
  * Return: the length of the specifier string
  */
-int X_format(char *format, unsigned long int n, int *i)
+int X_format(char *format, unsigned long int n, glob *i)
 {
-	int count = 1;
+	int ret;
 
-	(void) format;
+	ret = 0;
+	if (n && format[1] == '#')
+	{
+		_putchar('0', i);
+		_putchar('X', i);
+	}
+	if (format[1] == '#')
+		ret++;
 
 	while (*format != 'X')
 	{
@@ -49,9 +56,9 @@ int X_format(char *format, unsigned long int n, int *i)
 	if (!n)
 	{
 		_putchar('0', i);
-		return (2);
+		return (ret + 2);
 	}
 	get_hexX(n, i);
 
-	return (count);
+	return (ret + 2);
 }
