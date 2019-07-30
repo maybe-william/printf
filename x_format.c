@@ -37,8 +37,15 @@ void get_hexx(unsigned long int n, int *q)
  */
 int x_format(char *format, unsigned long int n, int *q)
 {
+	int count = 1;
+
 	(void) format;
 
+	while (*format != 'x')
+	{
+		count++;
+		format++;
+	}
 	if (!n)
 	{
 		_putchar('0', q);
@@ -46,5 +53,5 @@ int x_format(char *format, unsigned long int n, int *q)
 	}
 	get_hexx(n, q);
 
-	return (2);
+	return (count);
 }

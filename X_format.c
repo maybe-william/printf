@@ -5,7 +5,7 @@
  * @n: the number to print
  * @i: a pointer to the print counter
  */
-void get_hexX(unsigned int n, int *i)
+void get_hexX(unsigned long int n, int *i)
 {
 	int temp = 0;
 
@@ -34,9 +34,17 @@ void get_hexX(unsigned int n, int *i)
  * @i: a pointer to the print counter
  * Return: the length of the specifier string
  */
-int X_format(char *format, unsigned int n, int *i)
+int X_format(char *format, unsigned long int n, int *i)
 {
+	int count = 1;
+
 	(void) format;
+
+	while (*format != 'X')
+	{
+		count++;
+		format++;
+	}
 
 	if (!n)
 	{
@@ -45,5 +53,5 @@ int X_format(char *format, unsigned int n, int *i)
 	}
 	get_hexX(n, i);
 
-	return (2);
+	return (count);
 }

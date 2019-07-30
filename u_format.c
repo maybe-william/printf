@@ -6,7 +6,7 @@
   * @q: a pointer to the print counter
   * Return: length of format specifier
   */
-int u_format(char *format, unsigned int n, int *q)
+int u_format(char *format, unsigned long int n, int *q)
 {
 	unsigned int count = 1, divide = 1;
 

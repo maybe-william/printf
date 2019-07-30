@@ -8,12 +8,20 @@
  */
 int di_format(char *format, long int n, int *q)
 {
-	int count = 1, divide = 1;
+	int count = 1, divide = 1, spec = 1;
 
 	unsigned long i;
 
 	(void) format;
 
+	if (*(format+1) == 'h')
+	{
+		n = (short int) n;
+	}
+	if (*(format+1) != 'l')
+	{
+		n = (int) n;
+	}
 	if (n < 0)
 	{
 		i = n * -1;
@@ -21,6 +29,13 @@ int di_format(char *format, long int n, int *q)
 	}
 	else
 		i = n;
+
+
+	while (*format != 'd' && *format != 'i')
+	{
+		spec++;
+		format++;
+	}
 
 	while (divide <= i / 10)
 	{
@@ -35,5 +50,5 @@ int di_format(char *format, long int n, int *q)
 		divide /= 10;
 		count--;
 	}
-	return (2);
+	return (spec);
 }
