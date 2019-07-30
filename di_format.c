@@ -33,7 +33,7 @@ int di_format(char *format, long int n, glob *q)
 			_putchar(format[1], q);
 		}
 	}
-  
+
 	while (*format != 'd' && *format != 'i')
 	{
 		spec++;
